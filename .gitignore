@@ -1,0 +1,71 @@
+# Java
+/target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven
+/logs/
+/.mvn/
+!/.mvn/wrapper/maven-wrapper.jar
+
+# Spring Boot
+spring.log
+
+# React
+node_modules/
+build/
+dist/
+# Java
+/target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven
+/logs/
+/.mvn/
+!/.mvn/wrapper/maven-wrapper.jar
+
+# Spring Boot
+spring.log
+
+# React
+node_modules/
+build/
+dist/
+.env
+
+# Java
+/target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven
+/logs/
+/.mvn/
+!/.mvn/wrapper/maven-wrapper.jar
+
+# Spring Boot
+spring.log
+
+# React
+node_modules/
+build/
+dist/
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
