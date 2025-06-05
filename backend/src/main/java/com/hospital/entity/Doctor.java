@@ -1,9 +1,8 @@
 package com.hospital.entity;
 
-import jakarta.persistence.*;
 import lombok.Data;
-import java.util.HashSet;
-import java.util.Set;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -13,10 +12,10 @@ public class Doctor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column(nullable = false)
+    @Column(name = "last_name", nullable = false)
     private String lastName;
 
     @Column(nullable = false, unique = true)
@@ -28,16 +27,26 @@ public class Doctor {
     @Column(nullable = false)
     private String specialization;
 
-    @Column(name = "qualification")
+    @Column(nullable = false)
     private String qualification;
 
-    @Column(name = "years_of_experience")
-    private Integer yearsOfExperience;
+    @Column(nullable = false)
+    private Integer experience;
+
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private DoctorStatus status = DoctorStatus.ACTIVE;
 
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
 
     @OneToMany(mappedBy = "doctor")
-    private Set<Appointment> appointments = new HashSet<>();
+    private List<Appointment> appointments;
+
+    public enum DoctorStatus {
+        ACTIVE,
+        INACTIVE,
+        ON_LEAVE
+    }
 } 

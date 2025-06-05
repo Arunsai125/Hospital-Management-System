@@ -1,7 +1,7 @@
 package com.hospital.entity;
 
-import jakarta.persistence.*;
 import lombok.Data;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,8 +22,11 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(name = "full_name")
-    private String fullName;
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
 
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))

@@ -1,7 +1,7 @@
 package com.hospital.entity;
 
-import jakarta.persistence.*;
 import lombok.Data;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Data
@@ -20,14 +20,18 @@ public class Appointment {
     @JoinColumn(name = "doctor_id", nullable = false)
     private Doctor doctor;
 
-    @Column(nullable = false)
-    private LocalDateTime appointmentDateTime;
+    @Column(name = "appointment_date", nullable = false)
+    private LocalDateTime appointmentDate;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private AppointmentStatus status;
+    private AppointmentStatus status = AppointmentStatus.SCHEDULED;
 
-    private String description;
+    @Column
+    private String reason;
+
+    @Column
+    private String notes;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

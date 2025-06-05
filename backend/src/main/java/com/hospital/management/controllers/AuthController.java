@@ -23,6 +23,11 @@ public class AuthController {
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
 
+    @GetMapping("/health")
+    public ResponseEntity<String> healthCheck() {
+        return ResponseEntity.ok("Service is healthy");
+    }
+
     @PostMapping("/login")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) {
         Authentication authentication = authenticationManager.authenticate(
